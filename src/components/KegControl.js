@@ -11,7 +11,7 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       mainKegList: [],
       selectedKeg: null,
-      pints: 12
+      // pints: 12
     };
   }
 
@@ -41,8 +41,15 @@ class KegControl extends React.Component {
     }
   }
 
+  handlePouringPint = (id) => {
+    const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
+    console.log(selectedKeg);
+    this.setState({ pints: selectedKeg.pints - 1}); //not sure why this doesn't change the state of pints
+    console.log(this.state.selectedKeg.pints - 1);
+  }
+
   // handlePouringPint = () => {
-  //   const pintsValue = this.state.pints;
+  //   const pintsValue = selectedKeg.pints;
   //   console.log(pintsValue);
   //   if (pintsValue === 0) {
   //     console.log("out of stock");
@@ -54,10 +61,10 @@ class KegControl extends React.Component {
 
   // }
   
-  handlePouringPint = () => {
-    this.setState({pints:  - 1});
-    console.log(this.state);
-  }
+  // handlePouringPint = () => {
+  //   this.setState({pints:  - 1});
+  //   console.log(this.state);
+  // }
   // if (pintsValue === 0) {
   //   return "Out of Stock";
   // } else if (pintsValue > 0) {
