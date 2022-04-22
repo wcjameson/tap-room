@@ -12,10 +12,11 @@ function NewKegForm(props) {
       name: event.target.name.value,
       price: event.target.price.value,
       flavor: event.target.flavor.value,
+      pints: 124,
       id: v4()
     });
   }
-  
+
   return (
     <React.Fragment>
       <ReusableForm

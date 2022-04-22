@@ -9,13 +9,13 @@ function KegList(props) {
 
       {props.kegList.map((keg) =>
         <Keg
-          whenKegClicked={props.onKegSelection}
-          name={keg.name}
-          price={keg.price}
-          flavor={keg.flavor}
-          pints={keg.pints}
-          id={keg.id}
-          key={keg.id} />
+        whenKegClicked={props.onKegSelection}
+        name={keg.name}
+        price={keg.price}
+        flavor={keg.flavor}
+        // pints={keg.pints}
+        key={keg.id}
+        id={keg.id} />
       )}
 
     </React.Fragment>

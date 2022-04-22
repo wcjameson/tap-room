@@ -4,6 +4,15 @@ import PropTypes from "prop-types";
 function KegDetails(props) {
   const { keg } = props;
 
+
+    // if(keg.pints === 0) {
+    //   return "Out of Stock";
+    // } else if(keg.pints > 0) {
+    //   return keg.pints -1
+    // }
+
+  
+
   return(
     <React.Fragment>
       <h1>Keg Details</h1>
@@ -11,7 +20,9 @@ function KegDetails(props) {
       <p>
       {keg.price} 
       {keg.flavor}
+      {keg.pints}
       </p>
+      <button onClick={() => props.onPouringPint(keg.pints)}>Pour Pint</button>
 
 
     </React.Fragment>

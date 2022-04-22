@@ -10,8 +10,9 @@ class KegControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       mainKegList: [],
-      selectedKeg: null
-    }
+      selectedKeg: null,
+      pints: 12
+    };
   }
 
   handleAddingNewKegToList = (newKeg) => {
@@ -40,18 +41,42 @@ class KegControl extends React.Component {
     }
   }
 
+  // handlePouringPint = () => {
+  //   const pintsValue = this.state.pints;
+  //   console.log(pintsValue);
+  //   if (pintsValue === 0) {
+  //     console.log("out of stock");
+  //     return "Out of Stock";
+  //   } else if (pintsValue > 0) {
+  //     this.setState({pints: pintsValue - 1});
+  //     return pintsValue;
+  //   }
+
+  // }
+  
+  handlePouringPint = () => {
+    this.setState({pints:  - 1});
+    console.log(this.state);
+  }
+  // if (pintsValue === 0) {
+  //   return "Out of Stock";
+  // } else if (pintsValue > 0) {
+  //   return pintsValue - 1
+  // }
+  // onPouringPint={this.handlePouringPint}
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
     if (this.state.selectedKeg != null) {
-      currentlyVisibleState = <KegDetails keg={this.state.selectedKeg} />
+      currentlyVisibleState = <KegDetails keg={this.state.selectedKeg} onPouringPint={this.handlePouringPint} />
       buttonText = "Return to Keg List";
     } else if (this.state.formVisibleOnPage) {
       currentlyVisibleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList} />
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleAddingNewKegToList} />
+      currentlyVisibleState = <KegList kegList={this.state.mainKegList} onKegSelection={this.handleChangingSelectedKeg} />
       buttonText = "Add Keg";
     }
 
