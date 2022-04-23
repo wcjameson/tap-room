@@ -11,7 +11,6 @@ class KegControl extends React.Component {
       formVisibleOnPage: false,
       mainKegList: [],
       selectedKeg: null,
-      // pints: 12
     };
   }
 
@@ -41,53 +40,17 @@ class KegControl extends React.Component {
     }
   }
 
-  // handlePouringPint = (id) => {
-  //   const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
-  //   console.log(selectedKeg);
-  //   const alteredKeg = selectedKeg.pints - 1;
-  //   // this.setState({pints: selectedKeg.pints- 1}); //not sure why this doesn't change the state of pints
-  //   this.setState([...mainKegList, alteredKeg])
-  //   console.log(this.state);
-  // }
-
   handlePouringPint = (id) => {
     const newMainKegList = [...this.state.mainKegList];
     const index = newMainKegList.findIndex(keg => keg.id === id);
     newMainKegList[index]["pints"] -= 1;
-
-    this.setState({mainKegList: [...newMainKegList]});
+    if(newMainKegList[index]["pints"] === 0 || isNaN(newMainKegList[index]["pints"]) ){
+      newMainKegList[index]["pints"] = "Sold Out";
+    }
+    if (index !== -1) {
+      this.setState({mainKegList: [...newMainKegList]});
+    }
   }
-
-  // const newArray = ...mainKegList
-
-  // make copy of Array
-  // access our keg in copied array, modify
-// using setState update our state
-
-
-  // handlePouringPint = () => {
-  //   const pintsValue = selectedKeg.pints;
-  //   console.log(pintsValue);
-  //   if (pintsValue === 0) {
-  //     console.log("out of stock");
-  //     return "Out of Stock";
-  //   } else if (pintsValue > 0) {
-  //     this.setState({pints: pintsValue - 1});
-  //     return pintsValue;
-  //   }
-
-  // }
-  
-  // handlePouringPint = () => {
-  //   this.setState({pints:  - 1});
-  //   console.log(this.state);
-  // }
-  // if (pintsValue === 0) {
-  //   return "Out of Stock";
-  // } else if (pintsValue > 0) {
-  //   return pintsValue - 1
-  // }
-  // onPouringPint={this.handlePouringPint}
 
   render() {
     let currentlyVisibleState = null;
@@ -108,9 +71,6 @@ class KegControl extends React.Component {
       <React.Fragment>
         {currentlyVisibleState}
         <button onClick={this.handleClick} > {buttonText}</button >
-        {/* <NewKegForm />
-        <KegList />
-        <KegDetails /> */}
 
       </React.Fragment >
     )
