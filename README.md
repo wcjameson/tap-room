@@ -33,7 +33,7 @@
 
 ## Known Bugs
 
-* Pints wont decrement currently
+* No known bugs currently
 
 * Contact at williamjameson90@gmail.com
 
