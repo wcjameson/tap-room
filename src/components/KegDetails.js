@@ -8,11 +8,9 @@ function KegDetails(props) {
     <React.Fragment>
       <h1>Keg Details</h1>
       <h3>{keg.name}</h3>
-      <p>
-        {keg.price}
-        {keg.flavor}
-        {keg.pints}
-      </p>
+      <p>Cost: {keg.price}</p>
+      <p>Flavor: {keg.flavor}</p>
+      <p>Pints remaining: {keg.pints}</p>
       <button onClick={() => onPouringPint(keg.id)}>Pour Pint</button>
 
 
