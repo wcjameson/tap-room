@@ -41,12 +41,29 @@ class KegControl extends React.Component {
     }
   }
 
+  // handlePouringPint = (id) => {
+  //   const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
+  //   console.log(selectedKeg);
+  //   const alteredKeg = selectedKeg.pints - 1;
+  //   // this.setState({pints: selectedKeg.pints- 1}); //not sure why this doesn't change the state of pints
+  //   this.setState([...mainKegList, alteredKeg])
+  //   console.log(this.state);
+  // }
+
   handlePouringPint = (id) => {
-    const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
-    console.log(selectedKeg);
-    this.setState({ pints: selectedKeg.pints - 1}); //not sure why this doesn't change the state of pints
-    console.log(this.state.selectedKeg.pints - 1);
+    const newMainKegList = [...this.state.mainKegList];
+    const index = newMainKegList.findIndex(keg => keg.id === id);
+    newMainKegList[index]["pints"] -= 1;
+
+    this.setState({mainKegList: [...newMainKegList]});
   }
+
+  // const newArray = ...mainKegList
+
+  // make copy of Array
+  // access our keg in copied array, modify
+// using setState update our state
+
 
   // handlePouringPint = () => {
   //   const pintsValue = selectedKeg.pints;
