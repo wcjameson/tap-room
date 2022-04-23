@@ -1,4 +1,5 @@
 body {
+  opacity: 50;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +11,43 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  background-image: url(./img/alphacen.jpg);
+}
+
+html {
+  background-image: url(./img/alphacen.jpg);
+}
+
+.card-header{
+  color: aquamarine;
+  border: 4px
+}
+
+h3, h1 {
+  color: aquamarine;
+  border: 4px
+}
+
+p {
+  color: aquamarine;
+  border: 4px
+}
+
+.container {
+  background-color: rgba(100, 148, 237, 0.432);
+}
+
+#welcome {
+  font-size: large;
+  border: 4px;
+  background-color: rgba(52, 93, 168, 0.233)
+}
+
+#welcome1 {
+  font-size: large;
+  border: 4px;
+  background-color: rgba(52, 93, 168, 0.233)
 }
