@@ -10,8 +10,9 @@
 ## Technologies Used
 
 * React
-* HTML
 * Javascript
+* HTML
+* CSS
 
 ## Description
 
